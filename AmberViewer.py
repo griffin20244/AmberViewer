@@ -25,6 +25,14 @@ ZOOM_STEP = 1.2
 HQ_DELAY_MS = 150
 
 
+def resource_path(filename):
+    """Return a resource path for source runs and PyInstaller bundles."""
+    base_path = getattr(
+        sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__))
+    )
+    return os.path.join(base_path, filename)
+
+
 class AmberViewer:
     def __init__(self, root):
         self.root = root
@@ -694,6 +702,12 @@ def main():
             pass
 
     root = tk.Tk()
+    try:
+        root.iconbitmap(resource_path("icon.ico"))
+    except (tk.TclError, OSError):
+        # Keep the viewer usable if the optional icon resource is unavailable.
+        pass
+
     app = AmberViewer(root)
 
     # "Open with" / drag a file onto the script or exe.
