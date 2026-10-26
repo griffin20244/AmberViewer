@@ -19,8 +19,6 @@ Fast image browsing, smooth zooming, and simple format conversion — without un
 
 Download the latest Windows release from [**GitHub Releases**](https://github.com/griffin20244/AmberViewer/releases).
 
-Run `AmberViewer.exe` — the packaged executable does not require a separate Python installation.
-
 ## Controls
 
 | Action | Shortcut |
@@ -57,25 +55,14 @@ Format support may vary depending on the image variant and Pillow version. Anima
 
 ```bash
 python -m pip install Pillow
-python amber_viewer.py
+python AmberViewer.py
 ```
 
 To open a specific image directly:
 
 ```bash
-python amber_viewer.py path/to/image.tga
+python AmberViewer.py path/to/image.tga
 ```
-
-## Build
-
-Build a standalone Windows executable using PyInstaller:
-
-```bash
-python -m pip install Pillow pyinstaller
-pyinstaller --onefile --windowed --name AmberViewer amber_viewer.py
-```
-
-The executable will be generated in the `dist` directory.
 
 ## License
 
